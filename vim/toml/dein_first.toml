@@ -1,0 +1,20 @@
+# 先に読み込んでほしいプラグインを羅列するファイル
+
+# すべての始まり。dein
+[[plugins]]
+repo = '~/.vim/dein/repos/github.com/Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+# カラースキーマ molokaiのインスコ
+[[plugins]]
+repo = 'tomasr/molokai'
+# hook_add = '''
+#   au MyAutoCmd VimEnter * nested colorscheme molokai
+# '''
+
+# いろいろ動かすのに必要になる vimproc
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'

@@ -1,0 +1,40 @@
+if &compatible
+  set nocompatible
+endif
+
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" プラグインを羅列
+if dein#load_state('~/.cache/dein')
+  " dein本体
+  call dein#begin('~/.cache/dein')
+
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+
+  " nvimの場合には使うみたいな
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let s:toml_dir  = $HOME . '/.dotfiles/vim/toml'
+  let s:first_toml = s:toml_dir . '/dein_first.toml'
+  let s:toml       = s:toml_dir . '/dein.toml'
+
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:first_toml, {'lazy': 0})
+  call dein#load_toml(s:toml,       {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
+
+filetype plugin indent on
+syntax enable

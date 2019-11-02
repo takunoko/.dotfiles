@@ -1,0 +1,152 @@
+# 書き方サンプル
+# [[plugins]]
+# repo = 'リポジトリの場所'
+# depends = '依存先プラグイン'
+# hook_add = 'プラグインの設定とか' # プラグインが読み込まれた際に実行される。
+# hook_source = '' # プラグイン実行"前"に実行される処理
+# hook_post_update = '処理' # プラグインインスコ時に行ってほしい処理を書いておく。
+# on_i = 1 # インサートモード時に有効になる。
+
+# ファイルの移動とか便利だったりする 正直、使い方を全然理解してない
+# そのうちdeniteに移行したい。
+[[plugins]]
+repo = 'Shougo/unite.vim'
+hook_add = '''
+  au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q       # ESCキーを2回押すと終了する
+  au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+
+  let g:unite_source_history_yank_enable =1
+  let g:unite_source_file_mru_limit = 200
+  nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+  nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+  nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+  nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR> # 最近使用したファイル一覧
+
+  au FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action("split") # ウィンドウを上下分割して開く
+  au FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action("split")
+
+  au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action("vsplit") # ウィンドウを左右に分割して開く
+  au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action("vsplit")
+'''
+
+# 入力補完機能 'neocomplete'
+# luaの入っている環境ではneocompleteを利用する
+repo = 'Shougo/neocomplete.vim'
+if =  'has("lua")'
+on_i = 1
+
+# VimShell
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
+depends = 'vimproc.vim'
+
+# vim 日本語ヘルプ
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+# vim-quickrun(編集中のファイルを実行) \r で実行入力なしのCファイルとか実行できる。
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+# \r で実行
+# quickrunを<C-c>で終わらせられるように設定
+hook_add = '''
+  nmap <Leader>r <Plug>(quickrun)'
+  nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"'
+'''
+
+# ステータスラインのカスタマイズ
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_source = 'set t_Co=256'
+
+# 行末の半角スペースを可視化
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+# :FixWhitespace コマンド実行で行末の半角スペースを削除
+
+# インデントとかを共有する
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+# ファイル名を変更する
+[[plugins]]
+repo = 'vim-scripts/renamer.vim'
+# :Renamerで開始 :Renで変更を保存 :close で変更ウィンドウを閉じる
+
+# sudo.vim スーパーーザー権限のない編集？に権限を与える
+[[plugins]]
+repo = 'vim-scripts/sudo.vim'
+# :e sudo:% とかで開いているファイルをsudoで開き直す
+
+# for<Tab>とかで使える補完機能
+[[plugins]]
+repo = 'vim-scripts/snipMate'
+
+# htmlの編集などなど
+[[plugins]]
+repo = 'mattn/emmet-vim'
+# for<Tab>とかの補完機能
+
+#関数などをまとめて表示。
+#ctagsを(brewとかで)インストールしてないと動かないよ。
+[[plugins]]
+repo = 'majutsushi/tagbar'
+# <F8>で実行
+hook_add = 'nmap <F8> :TagbarToggle<CR>'
+
+#ヤンク履歴を参照
+[[plugins]]
+repo = 'vim-scripts/YankRing.vim')
+hook_add = '''
+  let g:yankring_history_dir = '~/.vim/'
+  # ,yで実行
+  nmap ,y :YRShow<CR>
+'''
+
+# 囲んでいるものに対していろいろ操作を行う
+[[plugins]]
+repo = 'tpope/vim-surround'
+# ds' で 'hello' -> hello
+# cs'(で 'hello' -> (hello)
+# cit でタグの中身を削除してインサート
+
+# html5のタグに対応した色
+[[plugins]]
+repo = 'othree/html5.vim'
+
+# コメントの複数行挿入
+[[plugins]]
+repo = 'tyru/caw.vim'
+# \cで行の先頭にコメントをつけたり外したりできる
+hook_add = '''
+  nmap <Leader>c <Plug>(caw:i:toggle)
+  vmap <Leader>c <Plug>(caw:i:toggle)
+'''
+
+# コメントON/OFFを手軽に実行
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+# (Ctrl + -)を2回
+
+# ディレクトリのTree表示
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+# ファイル名が指定されていない際に自動で起動
+# autocmd vimenter * execute 'NERDTree' " 常時起動
+hook_add = '''
+  autocmd StdinReadPre * let s:std_in = 1 # ファイル名指定なしの場合起動
+  if !argc()
+    autocmd vimenter * NERDTree|normal gg3j
+  endif
+  nnoremap <silent><C-i> :NERDTreeToggle<CR> # <C-i>で起動
+'''
+
+# Gitをvim上から操る
+# 使い方はこの辺を見る http://qiita.com/tashua314/items/35521f9bada5fe00cca7
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# dein.vimで管理して更新だけするリポジトリ（NeoBundleFetchとおなじ）
+#ctagsをインストールしてないと動かないよ。
+[[plugins]]
+repo = 'jszakmeister/markdown2ctags'
