@@ -58,8 +58,7 @@ setopt auto_cd
 export EDITOR="vim"
 
 # 関連ファイルをいろいろ読み込むよ
-source ~/.zshrc.path
-source ~/.zshrc.prompt
+# source ~/.dotfiles/zsh/.zshrc.prompt
 
 case "${OSTYPE}" in
     #Mac(Unix)
