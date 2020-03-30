@@ -12,12 +12,6 @@ alias ls='ls -G'
 # android sdk(Mac)
 export PATH=$PATH:/Users/takunoko/Library/Android/sdk/platform-tools
 export PATH=$PATH:/Users/takunoko/Library/Android/sdk/build-tools/25.0.0
-# MeshLabへのパス
-# meshlabserverがコマンドラインmeshlabとなる
-export PATH=$PATH:/Applications/meshlab.app/Contents/MacOS
-# ParaViewへのパス
-# pvpythonでpythonのシェルが立ち上がる
-export PATH=$PATH:/Applications/paraview.app/Contents/bin
 
 # Python関連の設定
 export PYENV_ROOT="${HOME}/.pyenv"
@@ -30,32 +24,12 @@ fi
 # minicondaはライブラリとかナシの純粋にpythonのみanacondaはいろいろ全部入ってるみたい。
 # pyenv shell miniconda3-3.7.0
 # pyenv shell 3.4.3
-pyenv shell anaconda3-2.1.0
-
-# boot2dockerの設定
-# いろんな環境で同じ仮想マシーンを構築するためのツール?みたいな
-export DOCKER_CERT_PATH=/Users/takunoko/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
+pyenv shell anaconda3-5.0.1
 
 # erutaso
 export PATH=$PATH:$HOME/Develop/test/sl
 # vimをbrewで入れたvim優先にする
 PATH=/usr/local/bin/vim:$PATH
-
-# OpenMIP
-export MANPATH=$MANPATH:$HOME/Mybin/bin/share/man
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Mybin/bin/lib
-export PATH=$PATH:$HOME/Mybin/bin
-
-# GOの設定
-if type go 2>/dev/null 1>/dev/null
-then
-    export GOROOT=/usr/local/opt/go/libexec
-    export GOPATH=$HOME/Mybin/go-local
-    # GOPATHにはGoからインストールした実行ファイルとかが置かれたりするらしい
-    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-fi
 
 # nvmの代わりにいれたnodebrewの設定。
 # もしかしたら、補完とかがきかなくなってるかも
@@ -88,9 +62,13 @@ export NODEBREW_ROOT=$HOME/.nodebrew
 # MANPATH=${NVM_DIR:-$HOME/.nvm}/default/share/man:$MANPATH
 # export NODE_PATH=$npm_dir
 
-# 古い設定
-# [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
-# nvm use default
-# npm_dir=${NVM_PATH}_modules
-# export NODE_PATH=$npm_dir
-# source ~/.nvm/nvm.sh
+# helixのコンパイル環境パス
+export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
+
+###########
+# AWS関連 #
+###########
+# awsコマンドパス
+export PATH="/usr/local/aws-cli:$PATH"
+# awsのリージョン
+export AWS_DEFAULT_REGION='ap-northeast-1'
