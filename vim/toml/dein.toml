@@ -31,7 +31,8 @@ hook_add = '''
 
 # 補完プラグインのソース(本体は.vimrc.plugin)
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
+repo = 'Shougo/neco-syntax'
+# C
 [[plugins]]
 repo = 'zchee/deoplete-clang'
 # Python
@@ -43,7 +44,7 @@ repo = 'zchee/deoplete-jedi'
 repo = 'Shougo/vimshell.vim'
 depends = 'vimprc.vim'
 hook_add = '''
-  nnoremap <Space>s  :vs<CR>:<C-u>VimShell<CR>
+  nnoremap <Space>s  :vs<CR><C-w>l:<C-u>VimShell<CR>
 '''
 
 # vim 日本語ヘルプ
