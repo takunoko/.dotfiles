@@ -10,4 +10,3 @@ sh ./installer.sh ~/.cache/dein
 
 rm -rf ~/.vimrc ~/.vimrc.plugin
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
-ln -s ~/.dotfiles/vim/.vimrc.plugin ~/.vimrc.plugin
