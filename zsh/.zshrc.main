@@ -1,63 +1,63 @@
-#Êä´°µ¡Ç½¶¯²½
-# zplug¤Ç¸Æ¤Ğ¤ì¤Æ¤¤¤ë¤¿¤á¡¢zprof¤òÍøÍÑ¤¹¤ë¾ì¹ç¤Ïµ­½Ò¤·¤Ê¤¤
+#è£œå®Œæ©Ÿèƒ½å¼·åŒ–
+# zplugã§å‘¼ã°ã‚Œã¦ã„ã‚‹ãŸã‚ã€zprofã‚’åˆ©ç”¨ã™ã‚‹å ´åˆã¯è¨˜è¿°ã—ãªã„
 # autoload -U compinit
 # compinit
 
-## ¿§¤ò»È¤¦
+## è‰²ã‚’ä½¿ã†
 setopt prompt_subst
 
-# ¿§ÀßÄê
+# è‰²è¨­å®š
 autoload -U colors; colors
 
 ##########
-#ÍúÎò´ØÏ¢#
+#å±¥æ­´é–¢é€£#
 ##########
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-#ÍúÎò¸¡º÷
+#å±¥æ­´æ¤œç´¢
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-# °ÜÆ°¤·¤¿¥Ç¥£¥ì¥¯¥È¥ê¤òµ­Ï¿¤·¤Æ¤ª¤¯¡£"cd -[Tab]"¤Ç°ÜÆ°ÍúÎò¤ò°ìÍ÷
+# ç§»å‹•ã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¨˜éŒ²ã—ã¦ãŠãã€‚"cd -[Tab]"ã§ç§»å‹•å±¥æ­´ã‚’ä¸€è¦§
 setopt auto_pushd
 
-## ¥Ó¡¼¥×¤òÌÄ¤é¤µ¤Ê¤¤
+## ãƒ“ãƒ¼ãƒ—ã‚’é³´ã‚‰ã•ãªã„
 setopt nobeep
 setopt nolistbeep
 
-##¤¤¤í¤¤¤íÊØÍø¤Ë¤Ê¤ë
+##ã„ã‚ã„ã‚ä¾¿åˆ©ã«ãªã‚‹
 setopt prompt_subst
-##TAB¤Ç¸õÊäÀÚ¤êÂØ¤¨¤ë
+##TABã§å€™è£œåˆ‡ã‚Šæ›¿ãˆã‚‹
 setopt auto_menu
-##Êä´°¸õÊä¤Î¥«¡¼¥½¥ëÁªÂò¤òÍ­¸ú¤Ë
+##è£œå®Œå€™è£œã®ã‚«ãƒ¼ã‚½ãƒ«é¸æŠã‚’æœ‰åŠ¹ã«
 zstyle ':completion:*:default' menu select=1
-##ÍúÎò¤ò¶¦Í­
+##å±¥æ­´ã‚’å…±æœ‰
 #setopt share_history
-#ÀßÄêºÑ¤ß
-##cd»ş¤Ë¼«Æ°¤Çpush
+#è¨­å®šæ¸ˆã¿
+##cdæ™‚ã«è‡ªå‹•ã§push
 setopt auto_pushd
-## =command ¤ò command ¤Î¥Ñ¥¹Ì¾¤ËÅ¸³«¤¹¤ë
+## =command ã‚’ command ã®ãƒ‘ã‚¹åã«å±•é–‹ã™ã‚‹
 setopt equals
-##Æ±¤¸¥Ç¥£¥ì¥¯¥È¥ê¤Ïpush¤·¤Ê¤¤
+##åŒã˜ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¯pushã—ãªã„
 setopt pushd_ignore_dups
-##½ĞÎÏ»ş8bitÄÌ¤¹
+##å‡ºåŠ›æ™‚8bité€šã™
 setopt print_eight_bit
-##Æ±¤¸¥³¥Ş¥ó¥É¤òpush¤·¤Ê¤¤
+##åŒã˜ã‚³ãƒãƒ³ãƒ‰ã‚’pushã—ãªã„
 setopt hist_ignore_dups
-##Êä´°¸õÊä¤òµÍ¤á¤ÆÉ½¼¨¤¹¤ë
+##è£œå®Œå€™è£œã‚’è©°ã‚ã¦è¡¨ç¤ºã™ã‚‹
 #setopt list_packed
-##=°Ê¹ß¤âÊä´°
+##=ä»¥é™ã‚‚è£œå®Œ
 setopt magic_equal_subst
-##¼«Æ°¤Çcd
+##è‡ªå‹•ã§cd
 setopt auto_cd
 
-# ¥¨¥Ç¥£¥¿¡¼¤ÎÀßÄê
+# ã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼ã®è¨­å®š
 export EDITOR="vim"
 
-# ´ØÏ¢¥Õ¥¡¥¤¥ë¤ò¤¤¤í¤¤¤íÆÉ¤ß¹ş¤à¤è
+# é–¢é€£ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã„ã‚ã„ã‚èª­ã¿è¾¼ã‚€ã‚ˆ
 # source ~/.dotfiles/zsh/.zshrc.prompt
 
 case "${OSTYPE}" in
