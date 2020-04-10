@@ -1,4 +1,4 @@
-# 書き方サンプル
+# 書き方
 # [[plugins]]
 # repo = 'リポジトリの場所'
 # depends = '依存先プラグイン'
@@ -29,17 +29,21 @@ hook_add = '''
   au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action("vsplit")
 '''
 
+# 入力補完プラグイン
+# deoplateは.vimrc.pluginにて導入済み
+# repo = 'Shougo/deoplete.nvim'
 [[plugins]]
-# 入力補完機能 'neocomplete'
-# luaの入っている環境ではneocompleteを利用する
-repo = 'Shougo/neocomplete.vim'
-if =  'has("lua")'
+repo = 'Shougo/neosnippet.vim'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
 on_i = 1
 
 # VimShell
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
-depends = 'vimproc.vim'
+hook_add = '''
+  nnoremap <Space>s  :vs<CR>:<C-u>VimShell<CR>
+'''
 
 # vim 日本語ヘルプ
 [[plugins]]
@@ -151,3 +155,4 @@ repo = 'tpope/vim-fugitive'
 #ctagsをインストールしてないと動かないよ。
 [[plugins]]
 repo = 'jszakmeister/markdown2ctags'
+
