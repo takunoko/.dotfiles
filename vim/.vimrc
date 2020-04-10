@@ -5,9 +5,9 @@
 "　　　　　　システム設定
 "===================================-
 	"バックアップファイルをつくるディレクトリ
-	set backupdir+=$HOME/Documents/vimbackup
+	set backupdir+=$HOME/.dotfiles/vim
 	"スワップファイル用のディレクトリ
-	set directory+=$HOME/Documents/vimbackup
+	set directory+=$HOME/.dotfiles/vim
 	"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 	set smarttab
 	"Visual blockモードでフリーカーソルを有効にする
