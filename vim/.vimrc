@@ -22,7 +22,10 @@
 	let OSTYPE = system('uname')
 	" ヤンクした内容をクリップボードに常にコピー
 	" set guioptions+a "GUIバージョンの設定
-	set clipboard+=autoselect "CUIバージョンの設定
+	" set clipboard+=autoselect "Vimでの設定
+  set clipboard=unnamed,unnamedplus " Neovimでの設定
+  " キーの同時押し待ち時間
+  set timeoutlen=500
 "================================
 "				検索に関する設定
 "================================
