@@ -5,6 +5,9 @@
 # -------------------- #
 alias ls='ls -G'
 # export LSCOLORS=exfxfxdxbxegedabagacad
+# vimをbrewで入れたvim優先にする
+PATH=/usr/local/bin/vim:$PATH
+alias vim=nvim # 闇の設定だとは思う。。
 
 # -------------------- #
 # Programming Language #
@@ -49,8 +52,7 @@ export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 
 # erutaso
 export PATH=$PATH:$HOME/Develop/test/sl
-# vimをbrewで入れたvim優先にする
-PATH=/usr/local/bin/vim:$PATH
+
 
 
 
