@@ -60,11 +60,6 @@ hook_add = '''
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"'
 '''
 
-# ステータスラインのカスタマイズ
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_source = 'set t_Co=256'
-
 # 行末の半角スペースを可視化
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
