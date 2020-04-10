@@ -37,10 +37,16 @@ repo = 'Shougo/neosnippet.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+  inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
+  inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
+'''
 
 # VimShell
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
+depends = 'vimprc.vim'
 hook_add = '''
   nnoremap <Space>s  :vs<CR>:<C-u>VimShell<CR>
 '''
