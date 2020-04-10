@@ -1,109 +1,109 @@
-"ʸ���Υ��󥳡��ɤ� utf-8 ����ʤ��ȡ�help��̵��loooooop�ˤʤ��ǽ������
-"�ѹ�������ϡ�$HOME/.vim/bundle/vimdoc-ja/doc/tags-ja ��1���ܤ��ѹ���
+"文字のエンコードが utf-8 じゃないと、helpで無限loooooopになる可能性が。
+"変更する場合は、$HOME/.vim/bundle/vimdoc-ja/doc/tags-ja の1行目を変更。
 
 "===================================-
-"�����������������ƥ�����
+"　　　　　　システム設定
 "===================================-
-	"�Хå����åץե������Ĥ���ǥ��쥯�ȥ�
+	"バックアップファイルをつくるディレクトリ
 	set backupdir+=$HOME/.dotfiles/vim
-	"����åץե������ѤΥǥ��쥯�ȥ�
+	"スワップファイル用のディレクトリ
 	set directory+=$HOME/.dotfiles/vim
-	"��Ƭ��;����� Tab ���Ǥ�����ȡ�'shiftwidth' �ο���������ǥ�Ȥ��롣
+	"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 	set smarttab
-	"Visual block�⡼�ɤǥե꡼���������ͭ���ˤ���
+	"Visual blockモードでフリーカーソルを有効にする
 	set virtualedit=block
-	"���ޥ�ɥ饤���䴰����Ȥ��˶������줿��Τ�Ȥ�
+	"コマンドライン補完するときに強化されたものを使う
 	set wildmenu
-	"������ɥ��������Ĺ���Ԥ��ޤ��֤��ơ����ιԤ�³����ɽ������
+	"ウィンドウの幅より長い行は折り返して、次の行に続けて表示する
 	set wrap
-	" OSTYPE �˸��ߤ�OS����������
-	" Darwin \n"�ʤ�Mac
-	" Linux\n"�ʤ�linux
+	" OSTYPE に現在のOS情報を入れる
+	" Darwin \n"ならMac
+	" Linux\n"ならlinux
 	let OSTYPE = system('uname')
-	" ��󥯤������Ƥ򥯥�åץܡ��ɤ˾�˥��ԡ�
-	" set guioptions+a "GUI�С�����������
-	" set clipboard+=autoselect "Vim�Ǥ�����
-  set clipboard=unnamed,unnamedplus " Neovim�Ǥ�����
-  " ������Ʊ�������Ԥ�����
+	" ヤンクした内容をクリップボードに常にコピー
+	" set guioptions+a "GUIバージョンの設定
+	" set clipboard+=autoselect "Vimでの設定
+  set clipboard=unnamed,unnamedplus " Neovimでの設定
+  " キーの同時押し待ち時間
   set timeoutlen=500
 "================================
-"				�����˴ؤ�������
+"				検索に関する設定
 "================================
-	"��ʸ���Ǹ����λ�����ʸ����ʸ������̤��ʤ���
+	"小文字で検索の時、大文字小文字を区別しない。
 	set ignorecase
-	"��ʸ����������Τ߶���
+	"大文字がある場合のみ区別
 	set smartcase
 
 "================================
-"������������ɽ������
+"　　　　　　表示設定
 "================================
-	"���ѥ��ڡ���(��)���в�
+	"全角スペース(　)を視覚化
 	highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-	au BufNewFile,BufRead * match ZenkakuSpace /��/
-	" �����ȹԤ˲��������
+	au BufNewFile,BufRead * match ZenkakuSpace /　/
+	" カレント行に下線を引く
 	set cursorline
-	"���ֹ�ɽ��
+	"行番号表示
 	set number
-	"���ԥ����ɤ�ưǧ��
+	"改行コードを自動認識
 	set fileformats=unix,dos,mac
-	"�ӡ��ײ����Ĥ餵�ʤ�
+	"ビープ音を鳴らさない
 	set vb t_vb=
-	"�������ԤΥ���ǥ�Ȥ򸽺߹Ԥ�Ʊ���ˤ���
+	"新しい行のインデントを現在行と同じにする
 	set autoindent
-	"�Ĥ���̤����Ϥ��줿�Ȥ����б������̤�ɽ������
+	"閉じ括弧が入力されたとき、対応する括弧を表示する
 	set showmatch
-	"�������ʸ�������äƤ⡢��������ΰ��֤�����ʤ��褦�ˤ���
+	"□や○の文字があっても、カーソルの位置がずれないようにする
 	set ambiwidth=double
-	"���ץ�å���(��ư���Υ�å�����)��ɽ�����ʤ�
+	"スプラッシュ(起動時のメッセージ)を表示しない
 	"set lazyredraw
-	"�����ȥ��ɽ��
+	"タイトルを表示
 	set title
-	"������Υ��ޥ�ɤ򥹥ơ�������ɽ����
+	"入力中のコマンドをステータスに表示す
 	set laststatus=2
-	"������ʸ�ο����ѹ�
+	"コメント文の色を変更
 	highlight Comment ctermfg=DarkCyan
-	"����ɽ������
+	"色を表示する
 	syntax on
-	"BackSpace��ʸ����ä���褦�ˤ��롣
+	"BackSpaceで文字を消せるようにする。
 	set backspace=2
-	"���ߤΥ⡼��ɽ��
+	"現在のモード表示
 	set showmode
-	"ʸ�������ɤ򤽤�餷���Τ��ɤ߹��ࡣ
-	" �ǽ��utf-8������ȡ���ˤ�����ɤ󤸤㤦�������뤱��...
+	"文字コードをそれらしいので読み込む。
+	" 最初にutf-8があると、常にそれで読んじゃう気がするけど...
 	set encoding=utf-8
 	set fileencodings=utf-8,ucs-bom,euc-jp,iso-2022-jp,sjis,cp932,default
-	" Shift + ����ǥ�����ɥ����������ѹ�
+	" Shift + 矢印でウィンドウサイズを変更
 	nnoremap <S-Left>  <C-w><<CR>
 	nnoremap <S-Right> <C-w>><CR>
 	nnoremap <S-Up>    <C-w>-<CR>
 	nnoremap <S-Down>  <C-w>+<CR>
 
 ""=============================
-"��������������ǥ��
+"　　　　　インデント
 "=============================
-	"���֤��б��������ο�
+	"タブが対応する空白の数
 	set tabstop=2
-	"���֤�Хå����ڡ����λ��������Խ����򤹤�Ȥ��ˡ����֤��б��������ο�
+	"タブやバックスペースの使用等の編集操作をするときに、タブが対応する空白の数
 	set softtabstop=2
-	"����ǥ�Ȥγ��ʳ��˻Ȥ������ο�
+	"インデントの各段階に使われる空白の数
 	set shiftwidth=2
-	" ���֤���������Ȥ�������˶����Ȥ�ʤ�
+	" タブを挿入するとき、代わりに空白を使わない
 	" set noexpandtab
-	" ���֤򥹥ڡ����ǻȤ�
+	" タブをスペースで使う
 	set expandtab
-	"�б�����()������
+	"対応する()の入力
 	""inoremap ( ()<Left>
-	"�б�����{}������
+	"対応する{}の入力
 	""inoremap { {}<Left>
-	"�б�����<>������
+	"対応する<>の入力
 	""inoremap < <><Left>
-	"�б�����""������
+	"対応する""の入力
 	""inoremap " ""<Left>
 
 "====================================
-"�����⡼�ɻ������ơ������饤��ο����ѹ�
+"挿入モード時、ステータスラインの色を変更
 "====================================
-"���Τؤ�����꤬�Ť�
+"このへんの設定が甘い
 	let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 	function! s:GetHighlight(hi)
 		redir => hl
@@ -114,19 +114,19 @@
 		return hl
 	endfunction
 "==========================
-"�������������ط�
+"　　　　検索関係
 "==========================
-	"���ޥ�ɡ������ѥ������100�Ĥޤ�����˻Ĥ�
+	"コマンド、検索パターンを100個まで履歴に残す
 	set history=100
-	"�����λ�����ʸ����ʸ������̤��ʤ�
+	"検索の時に大文字小文字を区別しない
 	set ignorecase
-	"�����λ�����ʸ�����ޤޤ�Ƥ�����϶��̤��Ƹ�������
+	"検索の時に大文字が含まれている場合は区別して検索する
 	set smartcase
-	"�Ǹ�ޤǸ�����������Ƭ�����
+	"最後まで検索したら先頭に戻る
 	set wrapscan
-	"�ޤꤿ����?
+	"折りたたみ?
 	set foldmethod=indent
-	" ���٤Ƥθ����ˤĤ��ơ�������˸�������ñ�����̤�����˻��äƤ���褦�ˤ���
+	" すべての検索について、検索後に検索した単語を画面の中央に持ってくるようにする
 	nnoremap n nzz
 	nnoremap N Nzz
 	nnoremap * *zz
@@ -135,38 +135,38 @@
 	nnoremap g# g#zz
 
 "==========================
-"�������硼�ȥ��å�����
+"　　ショートカット設定
 "==========================
-	" Esc��2�󲡤��ǥϥ��饤�Ⱦõ�
+	" Escの2回押しでハイライト消去
 	nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
 	nmap <F9><F9> :q<CR>
-	"�ե������ɽ�����ƥ����פ��䤹��
+	"ファイルを表示してジャンぷしやすい
 	nmap <F4> :Vexplore<CR>
-	" <F4>�Ǻ���ʬ�䤷�ƥե����顼��ư
+	" <F4>で左右分割してファイラー機動
   noremap <C-j> <esc>
   noremap! <C-j> <esc>
 
 
 "-------------------------------------------------------------------------------
-" �ե�����μ��̤ˤ�äƥ��ޥ�ɤ�¹�
+" ファイルの種別によってコマンドを実行
 "-------------------------------------------------------------------------------
-	" C�Υե������cindent�ˤ���
+	" Cのファイルはcindentにする
 	autocmd Filetype c setl cindent
 	autocmd Filetype cuda setl cindent
 	autocmd Filetype cpp setl cindent
 "-------------------------------------------------------------------------------
-" �ե��������Υǥե���Ȥ򸫤䤹��
+" ファイル操作のデフォルトを見やすく
 "-------------------------------------------------------------------------------
-	" netrw�Ͼ��tree view
+	" netrwは常にtree view
 	let g:netrw_liststyle = 3
-	" CVS��.�ǻϤޤ�ե������ɽ�����ʤ�
+	" CVSと.で始まるファイルは表示しない
 	let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
-	" 'v'�ǥե�����򳫤��Ȥ��ϱ�¦�˳�����(�ǥե���Ȥ���¦�ʤΤ������ؤ�)
+	" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
 	let g:netrw_altv = 1
-	" 'o'�ǥե�����򳫤��Ȥ��ϲ�¦�˳�����(�ǥե���Ȥ���¦�ʤΤ������ؤ�)
+	" 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
 	let g:netrw_alto = 1
 "-------------------------------------------------------------------------------
-"Tex��񤯤��������
+"Texを書くための設定
 "-------------------------------------------------------------------------------
 	set grepprg=grep\ -nH\ $*
 	let g:tex_flavor='latex'
@@ -187,6 +187,6 @@
 	let g:Tex_ViewRule_dvi = 'open'
 
 "-------------------------------------------------------------------------------
-"�ץ饰������ɤ߹���
+"プラグインの読み込み
 "-------------------------------------------------------------------------------
 source ~/.dotfiles/vim/.vimrc.plugin
