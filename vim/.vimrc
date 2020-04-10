@@ -112,14 +112,6 @@ set laststatus=2
 	" set noexpandtab
 	" タブをスペースで使う
 	set expandtab
-	"対応する()の入力
-	""inoremap ( ()<Left>
-	"対応する{}の入力
-	""inoremap { {}<Left>
-	"対応する<>の入力
-	""inoremap < <><Left>
-	"対応する""の入力
-	""inoremap " ""<Left>
 
 "====================================
 "挿入モード時、ステータスラインの色を変更
@@ -160,13 +152,11 @@ set laststatus=2
 "==========================
 	" Escの2回押しでハイライト消去
 	nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
+  " F9 2回で修了
 	nmap <F9><F9> :q<CR>
-	"ファイルを表示してジャンぷしやすい
-	nmap <F4> :Vexplore<CR>
-	" <F4>で左右分割してファイラー機動
+  " Ctrl + j で Escと同義
   noremap <C-j> <esc>
   noremap! <C-j> <esc>
-
 
 "-------------------------------------------------------------------------------
 " ファイルの種別によってコマンドを実行
