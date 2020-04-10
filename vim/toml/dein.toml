@@ -29,19 +29,14 @@ hook_add = '''
   endfunction
 '''
 
-# 入力補完プラグイン
-# deoplateは.vimrc.pluginにて導入済み
-# repo = 'Shougo/deoplete.nvim'
+# 補完プラグインのソース(本体は.vimrc.plugin)
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_i = 1
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-  inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
-  inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
-'''
+repo = 'zchee/deoplete-clang'
+# Python
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
 
 # VimShell
 [[plugins]]
