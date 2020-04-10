@@ -13,6 +13,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
+  " 入力補完を有効化
+  let g:deoplete#enable_at_startup = 1
 
   " プラグインリストを収めた TOML ファイル
   " 予め TOML ファイル（後述）を用意しておく
