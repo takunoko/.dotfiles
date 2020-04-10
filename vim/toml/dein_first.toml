@@ -4,9 +4,6 @@
 [[plugins]]
 repo = '~/.vim/dein/repos/github.com/Shougo/dein.vim'
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-
 # カラースキーマ molokaiのインスコ
 [[plugins]]
 repo = 'tomasr/molokai'
