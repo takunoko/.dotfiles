@@ -14,6 +14,8 @@ echo "source .dotfiles/zsh/.zshrc.main" >> $HOME/.zshrc
 # Shellのデフォルトに設定
 # chsh -s /bin/zsh
 
+curl https://raw.githubusercontent.com/knu/zsh-git-escape-magic/master/git-escape-magic > ${ZDOTDIR:-$HOME}/.zprezto/modules/prompt/functions/git-escape-magic
+
 # zsh環境じゃなきゃ実行できない。。(/bin/shじゃ駄目)
 # 手動で実行しよう。
 echo '
