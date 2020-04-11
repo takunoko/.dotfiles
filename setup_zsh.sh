@@ -14,6 +14,12 @@ echo "source .dotfiles/zsh/.zshrc.main" >> $HOME/.zshrc
 # Shellのデフォルトに設定
 # chsh -s /bin/zsh
 
+# gitのaliasを登録。ここにかくべきではない...?
+git config --global alias.co checkout
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.ci commit
+
 # zshでgitコマンドをつかうときに自動で^をエスケープしてくれる
 curl https://raw.githubusercontent.com/knu/zsh-git-escape-magic/master/git-escape-magic > ${ZDOTDIR:-$HOME}/.zprezto/modules/prompt/functions/git-escape-magic
 
