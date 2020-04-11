@@ -9,6 +9,12 @@ alias ls='ls -G'
 PATH=/usr/local/bin/vim:$PATH
 alias vim=nvim # 闇の設定だとは思う。。
 
+# gitコマンドを打つ際の^を自動エスケープするプラグイン
+# zprezto関連のディレクトリに本体がある
+# setup_zsh必須。
+autoload -Uz git-escape-magic
+git-escape-magic
+
 # -------------------- #
 # Programming Language #
 # -------------------- #
@@ -52,7 +58,3 @@ export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 
 # erutaso
 export PATH=$PATH:$HOME/Develop/test/sl
-
-
-
-
