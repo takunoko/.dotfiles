@@ -1,12 +1,14 @@
 #!/bin/sh
 
-# clear
+# 過去になにかあってもすべて削除
 rm -rf ~/.cache
+rm -rf ~/.vimrc ~/.vimrc.plugin
 
 # dein.vim install
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-# `~/.cache/dein` as installation directory
+# `~/.cache/dein`をインストールディレクトリとして使用
 sh ./installer.sh ~/.cache/dein
 
-rm -rf ~/.vimrc ~/.vimrc.plugin
+# 過去のものをすべて削除
+echo "source $HOME/.vimrc" > $HOME/nvim/init.vim
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
