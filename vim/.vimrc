@@ -201,3 +201,6 @@ let g:Tex_ViewRule_dvi = 'open'
 "プラグインの読み込み
 "-------------------------------------------------------------------------------
 source ~/.dotfiles/vim/.vimrc.plugin
+" それぞれのpythonバージョンへのパス
+let g:python_host_prog = $PYENV_ROOT."/versions/neovim2/bin/python"
+let g:python3_host_prog = $PYENV_ROOT."/versions/neovim3/bin/python"
