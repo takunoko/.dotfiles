@@ -153,3 +153,9 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'jszakmeister/markdown2ctags'
 
+# 入力補完プラグインのsnippet
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+

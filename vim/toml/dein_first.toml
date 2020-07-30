@@ -2,7 +2,7 @@
 
 # すべての始まり。dein
 [[plugins]]
-repo = '~/.vim/dein/repos/github.com/Shougo/dein.vim'
+repo = 'Shougo/dein.vim'
 
 # カラースキーマ molokaiのインスコ
 [[plugins]]
