@@ -29,6 +29,10 @@ fi
 pyenv shell anaconda3-5.0.1
 export PATH=$PATH:/Users/takunoko/.pyenv/versions/anaconda3-5.0.1/lib/python3.6/site-packages
 
+# Ruby (rbenv)
+eval "$(rbenv init -)"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
+
 
 # -------------------- #
 # Develop environment  #
