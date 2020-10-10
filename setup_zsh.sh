@@ -9,7 +9,7 @@ mkdir zsh_orig && mv zshmv .zlogin .zlogout .zprofile .zshenv  zsh_orig
  
 # add zprezto original ".zshrc"
 echo "source '${ZDOTDIR:-$HOME}/.zprezto/init.zsh'" >> $HOME/.zshrc
-echo "source .dotfiles/zsh/.zshrc.main" >> $HOME/.zshrc
+echo "source ~/.dotfiles/zsh/.zshrc.main" >> $HOME/.zshrc
 
 # Shellのデフォルトに設定
 # chsh -s /bin/zsh
