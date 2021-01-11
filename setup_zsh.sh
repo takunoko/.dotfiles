@@ -20,9 +20,7 @@ echo "source $HOME/.dotfiles/zsh/.zshrc.main" >> $HOME/.zshrc
 # echo "chsh -s `which zsh` を実行します。パスワードを入力"
 # chsh -s `which zsh`
 
-# # gitのaliasを登録。ここにかくべきではない...?
-# git config --global alias.co checkout
-# git config --global alias.st status
-# git config --global alias.br branch
-# git config --global alias.ci commit
-# git config --global alias.lt log --graph --pretty=oneline --abbrev-commit
+# gitのaliasを登録。
+if [ ! -e $HOME/.gitconfig ]; then
+  cp git/gitconfig_default $HOME/.gitconfig
+fi
