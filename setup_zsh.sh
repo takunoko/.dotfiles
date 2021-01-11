@@ -14,6 +14,8 @@ do
   echo "$line" | zsh
 done < 'setup_zshprezto.cmd'
 
+echo "source $HOME/.dotfiles/zsh/.zshrc.main" >> $HOME/.zshrc
+
 # # Shellのデフォルトに設定
 # echo "chsh -s `which zsh` を実行します。パスワードを入力"
 # chsh -s `which zsh`
