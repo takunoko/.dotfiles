@@ -100,7 +100,7 @@ hook_add = 'nmap <F8> :TagbarToggle<CR>'
 [[plugins]]
 repo = 'vim-scripts/YankRing.vim')
 hook_add = '''
-  let g:yankring_history_dir = '~/.vim/'
+  let g:yankring_history_dir = '~/.dotfiles/vim/'
   # ,yで実行
   nmap ,y :YRShow<CR>
 '''
