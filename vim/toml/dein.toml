@@ -140,7 +140,7 @@ hook_add = '''
   if !argc()
     autocmd vimenter * NERDTree|normal gg3j
   endif
-  nnoremap <silent><C-i> :NERDTreeToggle<CR> # <C-i>で起動
+  nnoremap <silent><C-t> :NERDTreeToggle<CR> # <C-t>で起動
 '''
 
 # Gitをvim上から操る
