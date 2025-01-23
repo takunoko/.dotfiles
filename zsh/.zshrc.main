@@ -3,9 +3,6 @@
 # autoload -U compinit
 # compinit
 
-## 色を使う
-setopt prompt_subst
-
 # 色設定
 autoload -U colors; colors
 
@@ -57,9 +54,6 @@ setopt auto_cd
 # エディターの設定
 export EDITOR="vim"
 export VISUAL="vim"
-
-# 関連ファイルをいろいろ読み込むよ
-# source ~/.dotfiles/zsh/.zshrc.prompt
 
 case "${OSTYPE}" in
     #Mac(Unix)

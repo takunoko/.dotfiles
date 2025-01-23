@@ -3,7 +3,7 @@
 # -------------------- #
 # Shell               #
 # -------------------- #
-alias ls='ls -G'
+alias ls='ls -G --color=auto'
 # export LSCOLORS=exfxfxdxbxegedabagacad
 # vimをbrewで入れたvim優先にする
 PATH=/usr/local/bin/vim:$PATH
@@ -24,14 +24,6 @@ if [ -d "${PYENV_ROOT}" ]; then
 	export PATH=${PYENV_ROOT}/bin:$PATH
 	eval "$(pyenv init -)"
 fi
-
-# デフォルトのpythonバージョンを指定
-pyenv shell anaconda3-5.0.1
-export PATH=$PATH:/Users/takunoko/.pyenv/versions/anaconda3-5.0.1/lib/python3.6/site-packages
-
-# Ruby (rbenv)
-eval "$(rbenv init -)"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 
 
 # -------------------- #
