@@ -1,3 +1,5 @@
+" .vimrcの内容をそのままコピー
+
 "文字のエンコードが utf-8 じゃないと、helpで無限loooooopになる可能性が。
 "変更する場合は、$HOME/.vim/bundle/vimdoc-ja/doc/tags-ja の1行目を変更。
 
@@ -200,7 +202,4 @@ let g:Tex_ViewRule_dvi = 'open'
 "-------------------------------------------------------------------------------
 "プラグインの読み込み
 "-------------------------------------------------------------------------------
-source ~/.dotfiles/vim/.vimrc.plugin
-" それぞれのpythonバージョンへのパス
-let g:python_host_prog = $PYENV_ROOT."/versions/neovim2/bin/python"
-let g:python3_host_prog = $PYENV_ROOT."/versions/neovim3/bin/python"
+source ~/.dotfiles/vim/nvim/plugin.vim

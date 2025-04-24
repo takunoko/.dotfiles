@@ -1,5 +1,4 @@
 #!/bin/sh -x
-# #!/bin/sh -x  # 実行コマンドを出力しながら
 
 # zshがインストールされているか?
 if !(type "zsh" > /dev/null 2>&1); then
@@ -15,10 +14,6 @@ do
 done < 'setup_zshprezto.cmd'
 
 echo "source $HOME/.dotfiles/zsh/.zshrc.main" >> $HOME/.zshrc
-
-# # Shellのデフォルトに設定
-# echo "chsh -s `which zsh` を実行します。パスワードを入力"
-# chsh -s `which zsh`
 
 # gitのaliasを登録。
 if [ ! -e $HOME/.gitconfig ]; then

@@ -1,68 +1,29 @@
-#!/bin/sh
+#!/bin/sh -x
 
-exit "未完成。完成させられたら使う。"
-exit 1
+set -e  # エラー時に即座に終了
 
-# neovimをインスコと設定する。
-# brewは入っている設定。mac向け
+# 過去の設定をすべて初期化
+rm -rf ~/.vimrc ~/.vimrc.plugin
+rm -rf $HOME/nvim/init.vim
+rm -rf $HOME/.config/nvim
 
-SHELLRC="$HOME/.zshrc" # 環境変数を保存するシェル
+# dein.vimのインストール
+DEIN_INSTALL_DIR="$HOME/.cache/dein"
+rm -rf "${DEIN_INSTALL_DIR}"
+mkdir -p "${DEIN_INSTALL_DIR}"
 
-## エラー処理
-# OSがMacであるか?
-if !([ "$(uname)" == 'Darwin' ]); then
-  echo "Macでのみ利用可能なコマンドです"
-  exit 1
+echo "Installing dein.vim to ${DEIN_INSTALL_DIR}..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)" -- "${DEIN_INSTALL_DIR}"
+
+# インストール確認
+if [ -d "${DEIN_INSTALL_DIR}" ]; then
+    echo "dein.vim installation completed successfully"
+else
+    echo "dein.vim installation failed" >&2
+    exit 1
 fi
 
-# brewがインストールされているか?
-if !(type "brew" > /dev/null 2>&1); then
-  echo "brew がインストールされていません"
-  exit 1
-fi
-
-
-# pyenvのインスコ
-if !(type "pyenv" > /dev/null 2>&1); then
-  brew install pyenv
-  # パスを通す
-  export PYENV_ROOT="$HOME/.pyenv
-  export PATH="$PYENV_ROOT/bin:$PATH
-  eval "$(pyenv init -)"
-
-  echo ''' # pyenv用のパス
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"''' >> $SHELLRC
-fi
-
-if !(type "pyenv-virtualenv" > /dev/null 2>&1); then
-  brew install pyenv-virtualenv
-  eval "$(pyenv virtualenv-init -)"
-  echo 'eval "$(pyenv virtualenv-init -)"' >> $SHELLRC
-fi
-
-brew install ctags neovim # プラグインで必要な何か
-
-# zshrcにパスを通す処理を書いておく
-
-## python環境は2020.4.15 最新
-## たぶんlatestとかしたほうが賢い。
-# python2環境
-pyenv install 2.7.17
-pyenv virtualenv 2.7.17 neovim2
-pyenv activate neovim2
-pip2 install --upgrade pip
-pip2 install neovim
-
-#python3環境
-pyenv install 3.8.2
-pyenv virtualenv 3.8.2 neovim3
-pyenv activate neovim3
-pip install --upgrade pip
-pip install neovim
-
-# .vimrcにpythonへのパスを追記
-echo '''" それぞれのpythonバージョンへのパス
-let g:python_host_prog = $PYENV_ROOT."/versions/neovim2/bin/python"
-let g:python3_host_prog = $PYENV_ROOT."/versions/neovim3/bin/python"''' >> $HOME/.vimrc
+# neovimの設定
+mkdir -p $HOME/.config/nvim
+rm -rf ~/.config/nvim/init.vim
+ln -s ~/.dotfiles/vim/nvim/init.vim ~/.config/nvim/init.vim

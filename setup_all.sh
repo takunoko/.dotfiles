@@ -1,9 +1,9 @@
 #!/bin/bash
-printf "vim関連の初期設定を行います\nよろしいですか？ [y/n]"
+printf "nvim関連の初期設定を行います\nよろしいですか？ [y/n]"
 read input
 if [ "$input" = "y" ]
 then
-  sh ./setup_vim.sh
+  sh ./setup_neovim.sh
 fi
 
 printf "Zsh関連の初期設定を行います\nよろしいですか？ [y/n]"

@@ -1,6 +1,4 @@
-let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
-let g:python2_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
-
+" install plugins
 if &compatible
   set nocompatible
 endif
@@ -12,10 +10,8 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
   call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
   " 入力補完を有効化
   let g:deoplete#enable_at_startup = 1
 
