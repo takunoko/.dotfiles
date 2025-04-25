@@ -13,7 +13,7 @@
 # denite.nvimのショートカット設定。GitHubのExamples通り
 # Define mappings
 # 適当なサイトのコピー(https# vim Shellの補完がuniteっぽい&python3が使えない環境でdeniteが使えないのでこれで。://qiita.com/tamago3keran/items/cdfd66b627b3686846d2)
-#
+
 [[plugins]]
 repo = 'Shougo/denite.nvim' 
 hook_add = '''
@@ -142,11 +142,6 @@ hook_add = '''
   endif
   nnoremap <silent><C-t> :NERDTreeToggle<CR> # <C-t>で起動
 '''
-
-# Gitをvim上から操る
-# 使い方はこの辺を見る http://qiita.com/tashua314/items/35521f9bada5fe00cca7
-[[plugins]]
-repo = 'tpope/vim-fugitive'
 
 # dein.vimで管理して更新だけするリポジトリ（NeoBundleFetchとおなじ）
 #ctagsをインストールしてないと動かないよ。
